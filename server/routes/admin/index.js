@@ -540,7 +540,7 @@ router.get('/mapa-calor', async (req, res) => {
 
     const ruas = (await db.prepare(`
       SELECT id, nome, tipo, bairro, cidade, lat, lng 
-      FROM ruas_cascavel
+      FROM ruas_foz
       WHERE lat != 0 AND lng != 0
     `).all()).sort((a, b) => b.nome.length - a.nome.length);
 
@@ -609,8 +609,8 @@ router.get('/mapa-calor', async (req, res) => {
       sucesso: true,
       periodo,
       centro: {
-        lat: -24.9578,
-        lng: -53.4595,
+        lat: -25.5163,
+        lng: -54.5854,
         zoom: 13
       },
       estatisticas: {
@@ -698,9 +698,9 @@ router.post('/pedidos/:id/imprimir', async (req, res) => {
   }
 });
 
-// Função auxiliar reutilizável para simular pedidos realistas em Cascavel
+// Função auxiliar reutilizável para simular pedidos realistas em Foz do Iguaçu
 async function gerarPedidoSimulado() {
-  const nomesCascavel = [
+  const nomesFoz = [
     'Guilherme Siqueira', 'Mariana Fagundes', 'Rodrigo Berton', 'Camila Nogueira',
     'Lucas Meneghel', 'Larissa Dall\'Oglio', 'Felipe Scherer', 'Juliana Moro',
     'Gabriel Copetti', 'Beatriz Zambon', 'Thiago Bordin', 'Fernanda Gurgel',
@@ -708,22 +708,17 @@ async function gerarPedidoSimulado() {
     'André Zilio', 'Paula Faccin', 'Vinícius Giacomini', 'Letícia Carletto'
   ];
 
-  const enderecosCascavel = [
-    { rua: 'Av. Brasil, 4210', bairro: 'Centro', ref: 'Em frente à Praça da Bíblia', comp: 'Apto 302, Bloco B' },
-    { rua: 'Rua Paraná, 2890', bairro: 'Centro', ref: 'Próximo ao Teatro Municipal', comp: 'Sala 4' },
-    { rua: 'Rua Rio de Janeiro, 1420', bairro: 'Centro', ref: 'Perto do Muffato Centro', comp: 'Apto 801' },
-    { rua: 'Rua Manaus, 1850', bairro: 'Cancelli', ref: 'Esquina com a Rua Visconde', comp: 'Casa 2 fundos' },
-    { rua: 'Rua Visconde de Guarapuava, 3100', bairro: 'Cancelli', ref: 'Próximo ao Supermercado Beal', comp: 'Sobrado azul' },
-    { rua: 'Rua Cuiabá, 2410', bairro: 'Neva', ref: 'Ao lado da Farmácia Nissei', comp: 'Apto 104' },
-    { rua: 'Rua Pio XII, 1920', bairro: 'Neva', ref: 'Próximo à Paróquia Nossa Senhora', comp: 'Casa 1' },
-    { rua: 'Rua das Palmeiras, 650', bairro: 'Coqueiral', ref: 'Perto da Prefeitura', comp: 'Apto 502' },
-    { rua: 'Rua Flamboyant, 1200', bairro: 'Coqueiral', ref: 'Esquina com Pres. Kennedy', comp: 'Condomínio Solar' },
-    { rua: 'Av. Tancredo Neves, 3400', bairro: 'Alto Alegre', ref: 'Próximo ao Hospital HUOP', comp: 'Portaria 1' },
-    { rua: 'Rua Salgado Filho, 1780', bairro: 'Parque São Paulo', ref: 'Perto do Parque Tarquínio', comp: 'Sobrado 3' },
-    { rua: 'Rua Carlos Gomes, 2150', bairro: 'Parque São Paulo', ref: 'Próximo à Praça', comp: 'Casa verde' },
-    { rua: 'Av. Tito Muffato, 1600', bairro: 'Santa Cruz', ref: 'Próximo ao Estádio Olímpico', comp: 'Apto 203' },
-    { rua: 'Rua Universitária, 2040', bairro: 'Jardim Faculdade (FAG)', ref: 'Perto do Portão 2 da FAG', comp: 'República Bulls' },
-    { rua: 'Rua Vicente Machado, 1550', bairro: 'Country', ref: 'Próximo ao Cascavel Country Club', comp: 'Casa de esquina' }
+  const enderecosFoz = [
+    { rua: 'Av. Sílvio Américo Sasdelli, 2143', bairro: 'Lancaster', ref: 'Em frente à Praça', comp: 'Apto 302, Bloco B' },
+    { rua: 'Av. Brasil, 1200', bairro: 'Centro', ref: 'Próximo ao Hotel Golden Park', comp: 'Sala 4' },
+    { rua: 'Av. Jorge Schimmelpfeng, 450', bairro: 'Centro', ref: 'Perto do McDonald\'s', comp: 'Apto 801' },
+    { rua: 'Av. Juscelino Kubitschek, 890', bairro: 'Vila Portes', ref: 'Próximo à Ponte da Amizade', comp: 'Casa 2 fundos' },
+    { rua: 'Av. Garibaldi, 650', bairro: 'Lancaster', ref: 'Próximo ao Supermercado', comp: 'Sobrado azul' },
+    { rua: 'Av. Mário Filho, 1420', bairro: 'Morumbi', ref: 'Ao lado da Farmácia', comp: 'Apto 104' },
+    { rua: 'Rua Almirante Barroso, 920', bairro: 'Centro', ref: 'Próximo à Igreja Matriz', comp: 'Casa 1' },
+    { rua: 'Rua Benjamin Constant, 310', bairro: 'Lancaster', ref: 'Perto do Posto de Saúde', comp: 'Apto 502' },
+    { rua: 'Av. das Cataratas, 1850', bairro: 'Vila Yolanda', ref: 'Caminho das Cataratas', comp: 'Condomínio Solar' },
+    { rua: 'Av. República Argentina, 2400', bairro: 'Maracanã', ref: 'Próximo ao Shopping Catuaí', comp: 'Portaria 1' }
   ];
 
   const observacoesPossiveis = [
@@ -740,8 +735,8 @@ async function gerarPedidoSimulado() {
   const formasPagamento = ['pix', 'pix', 'cartao_credito', 'cartao_credito', 'cartao_debito', 'dinheiro'];
 
   // Sorteio
-  const clienteSorteado = nomesCascavel[Math.floor(Math.random() * nomesCascavel.length)];
-  const endSorteado = enderecosCascavel[Math.floor(Math.random() * enderecosCascavel.length)];
+  const clienteSorteado = nomesFoz[Math.floor(Math.random() * nomesFoz.length)];
+  const endSorteado = enderecosFoz[Math.floor(Math.random() * enderecosFoz.length)];
   const obsSorteada = Math.random() > 0.3 ? observacoesPossiveis[Math.floor(Math.random() * observacoesPossiveis.length)] : null;
   const pagtoSorteado = formasPagamento[Math.floor(Math.random() * formasPagamento.length)];
   const telSorteado = `45998${Math.floor(100000 + Math.random() * 900000)}`;
@@ -775,7 +770,7 @@ async function gerarPedidoSimulado() {
   // Cliente
   let clienteDb = await db.prepare('SELECT id FROM clientes WHERE telefone = ?').get(telSorteado);
   let clienteId;
-  const enderecoCompleto = `${endSorteado.rua} - ${endSorteado.bairro}, Cascavel - PR`;
+  const enderecoCompleto = `${endSorteado.rua} - ${endSorteado.bairro}, Foz do Iguaçu - PR`;
 
   if (clienteDb) {
     clienteId = clienteDb.id;
@@ -927,7 +922,7 @@ router.post('/pedidos/simular-lote', async (req, res) => {
 
     res.status(201).json({
       sucesso: true,
-      mensagem: `${pedidosGerados.length} pedidos simulados com sucesso em Cascavel!`,
+      mensagem: `${pedidosGerados.length} pedidos simulados com sucesso em Foz do Iguaçu!`,
       pedidos: pedidosGerados
     });
   } catch (err) {

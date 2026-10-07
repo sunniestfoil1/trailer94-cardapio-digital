@@ -246,7 +246,7 @@ router.post('/', async (req, res) => {
     let taxaEntregaFinal = taxaEntrega;
     let descontoCentavos = 0;
 
-    // Frete Grátis automático para pedidos a partir de R$ 80,00 em Cascavel
+    // Frete Grátis automático para pedidos a partir de R$ 80,00 em Foz do Iguaçu
     if (subtotalCalculado >= 8000) {
       taxaEntregaFinal = 0;
     }

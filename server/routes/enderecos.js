@@ -14,7 +14,7 @@ function normalizarTexto(str) {
     .trim();
 }
 
-// GET /api/enderecos/busca?q=... — Autocomplete ultrarrápido restrito a Cascavel - PR
+// GET /api/enderecos/busca?q=... — Autocomplete ultrarrápido restrito a Foz do Iguaçu - PR
 router.get('/busca', async (req, res) => {
   const q = req.query.q;
   if (!q || typeof q !== 'string' || q.trim().length < 2) {
@@ -28,7 +28,7 @@ router.get('/busca', async (req, res) => {
   try {
     const ruas = await db.prepare(`
       SELECT id, nome, tipo, bairro, cidade, uf, lat, lng, exibicao
-      FROM ruas_cascavel
+      FROM ruas_foz
       WHERE busca_termo ILIKE ?
       ORDER BY
         CASE
@@ -47,12 +47,12 @@ router.get('/busca', async (req, res) => {
   }
 });
 
-// GET /api/enderecos/bairros — Lista de bairros atendidos em Cascavel
+// GET /api/enderecos/bairros — Lista de bairros atendidos em Foz do Iguaçu
 router.get('/bairros', async (req, res) => {
   try {
     const linhas = await db.prepare(`
       SELECT DISTINCT bairro
-      FROM ruas_cascavel
+      FROM ruas_foz
       WHERE bairro IS NOT NULL
       ORDER BY bairro ASC
     `).all();

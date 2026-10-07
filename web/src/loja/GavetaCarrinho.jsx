@@ -115,7 +115,7 @@ export function GavetaCarrinho({
           <div className="flex justify-between items-center text-xs font-bold text-emerald-950 mb-1">
             <span className="flex items-center gap-1.5">
               <Truck className="w-4 h-4 text-emerald-600" />
-              <span>{freteGratis ? '🎉 Frete Grátis Liberado para Cascavel!' : 'Frete Grátis a partir de R$ 80'}</span>
+              <span>{freteGratis ? '🎉 Frete Grátis Liberado para Foz do Iguaçu!' : 'Frete Grátis a partir de R$ 80'}</span>
             </span>
             <span className="text-emerald-700">
               {freteGratis ? 'GRÁTIS' : `Faltam ${formatarPreco(faltaParaFrete)}`}
@@ -334,7 +334,7 @@ export function GavetaCarrinho({
               )}
 
               <div className="flex justify-between">
-                <span>Taxa de Entrega (Cascavel)</span>
+                <span>Taxa de Entrega (Foz do Iguaçu)</span>
                 <span className={`font-semibold ${freteGratis ? 'text-emerald-600 font-black' : 'text-slate-900'}`}>
                   {freteGratis ? 'GRÁTIS' : formatarPreco(taxaEntrega)}
                 </span>

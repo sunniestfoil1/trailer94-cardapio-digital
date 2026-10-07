@@ -3,27 +3,24 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Navigation, Bike, Home, MapPin } from 'lucide-react';
 
-// Coordenadas centrais dos principais bairros de Cascavel - PR
-const BAIRROS_CASCAVEL = [
-  { nome: 'centro', lat: -24.9555, lng: -53.4610, distKm: 1.4, tempoMin: 5 },
-  { nome: 'cancelli', lat: -24.9430, lng: -53.4720, distKm: 2.6, tempoMin: 8 },
-  { nome: 'neva', lat: -24.9680, lng: -53.4510, distKm: 2.2, tempoMin: 7 },
-  { nome: 'coqueiral', lat: -24.9520, lng: -53.4850, distKm: 3.8, tempoMin: 11 },
-  { nome: 'parque são paulo', lat: -24.9750, lng: -53.4420, distKm: 4.1, tempoMin: 12 },
-  { nome: 'alto alegre', lat: -24.9450, lng: -53.4350, distKm: 3.5, tempoMin: 10 },
-  { nome: 'santa cruz', lat: -24.9650, lng: -53.5010, distKm: 5.4, tempoMin: 15 },
-  { nome: 'fag', lat: -24.9800, lng: -53.5180, distKm: 6.8, tempoMin: 18 },
-  { nome: 'maria luiza', lat: -24.9620, lng: -53.4380, distKm: 2.9, tempoMin: 9 },
-  { nome: 'country', lat: -24.9410, lng: -53.4550, distKm: 2.7, tempoMin: 8 },
-  { nome: 'são cristóvão', lat: -24.9460, lng: -53.4210, distKm: 4.5, tempoMin: 13 },
-  { nome: 'floresta', lat: -24.9350, lng: -53.4050, distKm: 6.2, tempoMin: 17 },
-  { nome: 'cascavel velho', lat: -24.9890, lng: -53.4180, distKm: 5.8, tempoMin: 16 }
+// Coordenadas centrais dos principais bairros de Foz do Iguaçu - PR
+const BAIRROS_FOZ_DO_IGUACU = [
+  { nome: 'itaipu a', lat: -25.4941, lng: -54.5626, distKm: 1.2, tempoMin: 4 },
+  { nome: 'lancaster', lat: -25.4980, lng: -54.5680, distKm: 0.8, tempoMin: 3 },
+  { nome: 'centro', lat: -25.5420, lng: -54.5880, distKm: 4.5, tempoMin: 12 },
+  { nome: 'vila a', lat: -25.5050, lng: -54.5750, distKm: 2.1, tempoMin: 6 },
+  { nome: 'porto meira', lat: -25.5780, lng: -54.5650, distKm: 8.5, tempoMin: 18 },
+  { nome: 'morumbi', lat: -25.5250, lng: -54.5380, distKm: 5.2, tempoMin: 14 },
+  { nome: 'tres lagoas', lat: -25.4650, lng: -54.5120, distKm: 9.1, tempoMin: 20 },
+  { nome: 'parque imperatriz', lat: -25.5120, lng: -54.5500, distKm: 3.2, tempoMin: 9 },
+  { nome: 'vila portes', lat: -25.5100, lng: -54.5820, distKm: 3.8, tempoMin: 10 },
+  { nome: 'vila yolanda', lat: -25.5550, lng: -54.5780, distKm: 6.4, tempoMin: 15 }
 ];
 
-// Ponto de saída fixo: Trailer 94 (Foz do Iguaçu - PR)
+// Ponto de saída fixo: Trailer 94 (Avenida Silvio Americo Sasdelli, 2143 - Foz do Iguaçu - PR)
 const ORIGEM_TRAILER = {
-  lat: -25.5167,
-  lng: -54.5833,
+  lat: -25.4941847,
+  lng: -54.5626942,
   nome: 'Trailer 94'
 };
 
@@ -34,7 +31,7 @@ export function MiniMapaRotaPreview({ endereco, idPedido }) {
   // Determinar coordenadas e distância baseado no endereço do pedido
   const destinoInfo = useMemo(() => {
     const endNorm = (endereco || '').toLowerCase();
-    const match = BAIRROS_CASCAVEL.find(b => endNorm.includes(b.nome));
+    const match = BAIRROS_FOZ_DO_IGUACU.find(b => endNorm.includes(b.nome));
 
     if (match) {
       return {
@@ -47,10 +44,10 @@ export function MiniMapaRotaPreview({ endereco, idPedido }) {
 
     // Default se não bater nenhum bairro específico
     return {
-      lat: -24.9620,
-      lng: -53.4750,
-      distKm: 3.2,
-      tempoMin: 10
+      lat: -25.5050,
+      lng: -54.5700,
+      distKm: 2.8,
+      tempoMin: 8
     };
   }, [endereco]);
 
@@ -76,7 +73,7 @@ export function MiniMapaRotaPreview({ endereco, idPedido }) {
       // Ícone Loja Trailer 94
       const iconeLoja = L.divIcon({
         className: 'custom-pin-loja',
-        html: `<div style="background: #f59e0b; color: #020617; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">🍔</div>`,
+        html: `<div style="background: #f59e0b; color: #020617; width: 28px; height: 28px; border-radius: 50%; display: flex; items-center; justify-content: center; font-size: 15px; border: 2px solid #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">🍔</div>`,
         iconSize: [28, 28],
         iconAnchor: [14, 14]
       });
@@ -84,7 +81,7 @@ export function MiniMapaRotaPreview({ endereco, idPedido }) {
       // Ícone Casa Cliente
       const iconeCasa = L.divIcon({
         className: 'custom-pin-casa',
-        html: `<div style="background: #10b981; color: #ffffff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">🏠</div>`,
+        html: `<div style="background: #10b981; color: #ffffff; width: 28px; height: 28px; border-radius: 50%; display: flex; items-center; justify-content: center; font-size: 15px; border: 2px solid #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">🏠</div>`,
         iconSize: [28, 28],
         iconAnchor: [14, 14]
       });
@@ -140,7 +137,7 @@ export function MiniMapaRotaPreview({ endereco, idPedido }) {
           <span className="flex items-center gap-1 text-amber-400">
             <span>🍔 Trailer 94 Cozinha</span>
           </span>
-          <span className="text-slate-500 font-mono text-[10px]">Trajeto em Cascavel</span>
+          <span className="text-slate-500 font-mono text-[10px]">Trajeto em Foz do Iguaçu</span>
           <span className="flex items-center gap-1 text-emerald-400">
             <span>🏠 Casa do Cliente</span>
           </span>

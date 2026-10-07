@@ -27,7 +27,7 @@ router.get('/disponiveis', async (req, res) => {
     const qtd = await db.prepare('SELECT SUM(quantidade) as total_itens FROM pedido_itens WHERE pedido_id = ?').get(p.id);
     p.totalItens = qtd?.total_itens || 1;
     // Montar link direto de rota Google Maps
-    const enderecoCodificado = encodeURIComponent(`${p.cliente_endereco}, ${p.cliente_complemento || ''}, Cascavel - PR`);
+    const enderecoCodificado = encodeURIComponent(`${p.cliente_endereco}, ${p.cliente_complemento || ''}, Foz do Iguaçu - PR`);
     p.rotaGoogleMaps = `https://www.google.com/maps/dir/?api=1&destination=${enderecoCodificado}`;
   }
 
@@ -96,7 +96,7 @@ router.get('/minhas-entregas', async (req, res) => {
   `).all(motoboyId);
 
   for (const p of ativas) {
-    const enderecoCodificado = encodeURIComponent(`${p.cliente_endereco}, ${p.cliente_complemento || ''}, Cascavel - PR`);
+    const enderecoCodificado = encodeURIComponent(`${p.cliente_endereco}, ${p.cliente_complemento || ''}, Foz do Iguaçu - PR`);
     p.rotaGoogleMaps = `https://www.google.com/maps/dir/?api=1&destination=${enderecoCodificado}`;
     p.itens = await db.prepare('SELECT nome_produto, quantidade FROM pedido_itens WHERE pedido_id = ?').all(p.id);
   }

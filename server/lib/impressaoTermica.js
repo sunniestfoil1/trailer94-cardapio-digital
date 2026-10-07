@@ -54,9 +54,9 @@ export function gerarBufferComanda(pedido, largura = '80mm', via = 'COZINHA') {
   // 2. Cabeçalho Centralizado
   raw += COMANDOS.ALINHAR_CENTRO;
   raw += COMANDOS.NEGRITO_ON;
-  raw += 'BULLS BURGER CASCAVEL\n';
+  raw += 'TRAILER 94 FOZ DO IGUAÇU\n';
   raw += COMANDOS.TEXTO_NORMAL;
-  raw += 'WhatsApp: (45) 98818-4380\n';
+  raw += 'WhatsApp: (45) 99855-2508\n';
   raw += COMANDOS.ALINHAR_CENTRO;
   raw += `*** VIA DE ${via} ***\n`;
   raw += divisorDuplo;

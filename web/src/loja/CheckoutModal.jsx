@@ -15,7 +15,7 @@ export function CheckoutModal({ infoLoja, cupomAtivo, onClose, onPedidoCriado })
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   
-  // Campos de endereço estruturados com autocomplete para Cascavel - PR
+  // Campos de endereço estruturados com autocomplete para Foz do Iguaçu - PR
   const [rua, setRua] = useState('');
   const [numero, setNumero] = useState('');
   const [bairro, setBairro] = useState('');
@@ -35,7 +35,7 @@ export function CheckoutModal({ infoLoja, cupomAtivo, onClose, onPedidoCriado })
   const [enviando, setEnviando] = useState(false);
   const [erro, setErro] = useState('');
 
-  // Busca preditiva de ruas de Cascavel (offline / local backend)
+  // Busca preditiva de ruas de Foz do Iguaçu (offline / local backend)
   useEffect(() => {
     if (!rua || rua.trim().length < 2) {
       setSugestoesRuas([]);
@@ -227,7 +227,7 @@ export function CheckoutModal({ infoLoja, cupomAtivo, onClose, onPedidoCriado })
                 <span>Endereço de Entrega</span>
               </h3>
               <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
-                <span>Cascavel - PR</span>
+                <span>Foz do Iguaçu - PR</span>
               </span>
             </div>
 
@@ -255,11 +255,11 @@ export function CheckoutModal({ infoLoja, cupomAtivo, onClose, onPedidoCriado })
                 )}
               </div>
 
-              {/* Dropdown Flutuante de Sugestões de Cascavel */}
+              {/* Dropdown Flutuante de Sugestões de Foz do Iguaçu */}
               {mostrandoSugestoes && sugestoesRuas.length > 0 && (
                 <div className="absolute z-50 left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-xl max-h-56 overflow-y-auto divide-y divide-slate-100">
                   <div className="p-1.5 bg-slate-50 border-b border-slate-100 text-[10px] font-bold text-slate-500 uppercase tracking-wider px-3">
-                    Logradouros encontrados em Cascavel - PR
+                    Logradouros encontrados em Foz do Iguaçu - PR
                   </div>
                   {sugestoesRuas.map((sug) => (
                     <button
@@ -303,14 +303,14 @@ export function CheckoutModal({ infoLoja, cupomAtivo, onClose, onPedidoCriado })
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Bairro em Cascavel *
+                  Bairro em Foz do Iguaçu *
                 </label>
                 <input 
                   type="text" 
                   required
                   value={bairro}
                   onChange={(e) => setBairro(e.target.value)}
-                  placeholder="Ex: Centro, Coqueiral..."
+                  placeholder="Ex: Itaipu A, Lancaster, Centro..."
                   className="w-full text-xs sm:text-sm p-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 focus:outline-none"
                 />
               </div>

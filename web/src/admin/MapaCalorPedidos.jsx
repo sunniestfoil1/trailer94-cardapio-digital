@@ -125,7 +125,7 @@ export function MapaCalorPedidos() {
             <strong style="font-size: 13px; color: #0f172a;">${pt.rua}</strong>
           </div>
           <div style="font-size: 11px; color: #64748b; margin-bottom: 8px;">
-            Bairro: <b>${pt.bairro}</b> • Cascavel - PR
+            Bairro: <b>${pt.bairro}</b> • Foz do Iguaçu - PR
           </div>
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 8px; font-size: 11px; line-height: 1.5;">
             <div>📦 Total de Pedidos: <b>${pt.total_pedidos}</b></div>
@@ -168,7 +168,7 @@ export function MapaCalorPedidos() {
             <span className="p-2 rounded-xl bg-amber-400 text-slate-950">
               <Flame className="w-5 h-5 fill-slate-950" />
             </span>
-            <span>Mapa de Calor de Pedidos — Cascavel</span>
+            <span>Mapa de Calor de Pedidos — Foz do Iguaçu</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1">
             Visualização de densidade e raio geográfico baseado nas coordenadas e faturamento por rua

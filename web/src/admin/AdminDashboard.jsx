@@ -404,7 +404,7 @@ export function AdminDashboard({ usuario, onLogout }) {
               onClick={handleSimularPedido}
               disabled={simulandoPedido}
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 active:scale-95 text-slate-950 text-xs font-black transition-all shadow-md shadow-amber-500/10 disabled:opacity-50"
-              title="Simular entrada de pedido realista de Cascavel no KDS com alerta sonoro"
+              title="Simular entrada de pedido realista de Foz do Iguaçu no KDS com alerta sonoro"
             >
               <Zap className={`w-3.5 h-3.5 ${simulandoPedido ? 'animate-spin' : ''}`} />
               <span className="hidden sm:inline">{simulandoPedido ? 'Simulando...' : 'Simular Pedido'}</span>
@@ -580,7 +580,7 @@ export function AdminDashboard({ usuario, onLogout }) {
                   onClick={handleSimularPedido}
                   disabled={simulandoPedido || simulandoLote}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 active:scale-95 text-slate-950 text-xs font-black shadow-md shadow-amber-500/10 transition-all disabled:opacity-50"
-                  title="Gera 1 pedido aleatório realista em Cascavel"
+                  title="Gera 1 pedido aleatório realista em Foz do Iguaçu"
                 >
                   <Zap className={`w-3.5 h-3.5 ${simulandoPedido ? 'animate-spin' : ''}`} />
                   <span>{simulandoPedido ? 'Gerando...' : '⚡ Simular 1'}</span>
@@ -1317,7 +1317,7 @@ export function AdminDashboard({ usuario, onLogout }) {
                       data_criacao: new Date().toISOString(),
                       cliente_nome: 'Cliente de Teste',
                       cliente_telefone: '(45) 99999-0000',
-                      cliente_endereco: 'Av. Brasil, 5000 - Centro, Cascavel - PR',
+                      cliente_endereco: 'Av. Silvio Americo Sasdelli, 2143 - Lancaster, Foz do Iguaçu - PR',
                       forma_pagamento: 'pix',
                       total: 4890,
                       itens: [
