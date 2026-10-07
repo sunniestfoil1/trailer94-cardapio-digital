@@ -9,7 +9,7 @@ import { CheckoutModal } from './CheckoutModal';
 import { AcompanhamentoPedido } from './AcompanhamentoPedido';
 import { RaspadinhaSorte } from './RaspadinhaSorte';
 import { ModalAvaliacaoGoogle } from './ModalAvaliacaoGoogle';
-import { Flame, RefreshCw, Gift } from 'lucide-react';
+import { Flame, RefreshCw, Gift, Clock, MapPin, Building2, Code } from 'lucide-react';
 import { EMPRESA_CONFIG } from '../empresa.config';
 import { 
   registrarPedidoSessao, 
@@ -315,6 +315,72 @@ export function LojaPage({ initialPedidoId = null }) {
             </div>
           </section>
         </main>
+
+        {/* Footer com Informações da Empresa, CNPJ, Endereço e Crédito do Desenvolvedor Junior */}
+        <footer className="mt-16 border-t-2 border-slate-800 bg-slate-950/90 pt-10 pb-16 text-slate-400 backdrop-blur-md">
+          <div className="max-w-4xl mx-auto px-4 space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Horários e Taxas */}
+              <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-2">
+                <div className="flex items-center gap-2 text-amber-400 font-black text-sm uppercase tracking-wide">
+                  <Clock className="w-4 h-4" />
+                  <span>Horários e Taxas</span>
+                </div>
+                <p className="text-xs text-slate-200 font-bold">
+                  {EMPRESA_CONFIG.horarioFuncionamento}
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  Entrega em Foz do Iguaçu - PR ({EMPRESA_CONFIG.tempoEstimadoEntrega})
+                </p>
+              </div>
+
+              {/* Endereço */}
+              <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-2">
+                <div className="flex items-center gap-2 text-amber-400 font-black text-sm uppercase tracking-wide">
+                  <MapPin className="w-4 h-4" />
+                  <span>Endereço</span>
+                </div>
+                <p className="text-xs text-slate-200 font-bold leading-relaxed">
+                  {EMPRESA_CONFIG.enderecoCompleto}
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  {EMPRESA_CONFIG.cidadeEstadoCep}
+                </p>
+              </div>
+
+              {/* Outras Informações & CNPJ */}
+              <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-2">
+                <div className="flex items-center gap-2 text-amber-400 font-black text-sm uppercase tracking-wide">
+                  <Building2 className="w-4 h-4" />
+                  <span>Outras Informações</span>
+                </div>
+                <p className="text-xs text-slate-200 font-bold">
+                  CNPJ: {EMPRESA_CONFIG.cnpj}
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  {EMPRESA_CONFIG.nome} © 2026. Todos os direitos reservados.
+                </p>
+              </div>
+            </div>
+
+            {/* Créditos do Desenvolvedor Junior */}
+            <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-amber-400/20 border border-amber-400/50 flex items-center justify-center text-amber-400">
+                  <Code className="w-4 h-4" />
+                </div>
+                <div>
+                  <p className="text-[11px] text-slate-400">Desenvolvido por</p>
+                  <p className="text-xs font-black text-amber-400 tracking-wide uppercase">Junior</p>
+                </div>
+              </div>
+
+              <div className="text-[11px] text-slate-400 font-medium">
+                Cardápio Digital High-Performance • Trailer 94
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
 
       {/* Modal de Detalhes do Produto Selecionado */}

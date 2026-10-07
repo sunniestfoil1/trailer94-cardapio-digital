@@ -20,16 +20,18 @@ export const EMPRESA_CONFIG = {
   // Localização & Contato
   cidade: 'Foz do Iguaçu',
   estado: 'PR',
-  enderecoCompleto: 'Foz do Iguaçu - PR',
-  telefone: '(45) 99999-9494',
-  whatsapp: '45999999494',
-  instagram: '@trailer94foz',
+  enderecoCompleto: 'Avenida Silvio Americo Sasdelli, 2143 - Lancaster',
+  cidadeEstadoCep: 'Foz do Iguaçu - PR, CEP: 85869-580',
+  cnpj: '68.406.220/0001-53',
+  telefone: '(45) 99855-2508',
+  whatsapp: '45998552508',
+  instagram: '@trailer94_',
   
   // Operação & Delivery
-  horarioFuncionamento: 'Terça a Domingo das 18h às 23h30',
+  horarioFuncionamento: 'Segunda a Domingo das 18h00 às 02h00',
   tempoEstimadoEntrega: '30 a 45 min',
-  taxaEntregaCentavos: 700, // R$ 7,00
-  freteGratisApartirDeCentavos: 9000, // R$ 90,00 (0 para desativar)
+  taxaEntregaCentavos: 500, // R$ 5,00
+  freteGratisApartirDeCentavos: 8000, // R$ 80,00
   
   // Cores & Identidade Visual (Design Tokens)
   corPrimaria: '#FFCC00', // Yellow Primary
