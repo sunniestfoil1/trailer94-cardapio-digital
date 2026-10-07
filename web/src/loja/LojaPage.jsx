@@ -101,11 +101,12 @@ export function LojaPage({ initialPedidoId = null }) {
 
           // Precarregar todas as imagens reais do cardápio em memória durante o carregamento inicial
           const urlsParaPrecarregar = Array.from(new Set([
+            '/fundo.webp',
             '/far-tampa.webp',
             '/far-base.webp',
             '/logo.jpg',
             '/banner.avif',
-            '/imagens/produtos/placeholder-lanche.jpg',
+            '/imagens/produtos/placeholder-lanche.webp',
             ...(cardapioData.categorias || []).flatMap(c => c.produtos || []).map(p => p.imagens?.[0]?.arquivo || p.imagens?.[0]).filter(Boolean)
           ]));
 
@@ -171,7 +172,15 @@ export function LojaPage({ initialPedidoId = null }) {
   })).filter(cat => cat.produtos.length > 0);
 
   return (
-    <div className="min-h-screen pb-28 text-slate-100 relative bg-[#0a0d14]">
+    <div 
+      className="min-h-screen pb-28 text-slate-100 relative bg-[#0a0d14] bg-fixed bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/fundo.webp')",
+      }}
+    >
+      {/* Overlay escuro de alto contraste para destacar os cards */}
+      <div className="absolute inset-0 bg-slate-950/85 pointer-events-none" />
+
       {/* Conteúdo da Loja */}
       <div className="relative z-10">
         {/* Topo / Header */}
