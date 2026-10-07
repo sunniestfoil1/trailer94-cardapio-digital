@@ -11,3 +11,5 @@ server/db/bulls.db-wal
 server/db/bulls.db-shm
 .env
 .env.local
+
+.vercel

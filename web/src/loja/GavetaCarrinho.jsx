@@ -167,7 +167,8 @@ export function GavetaCarrinho({
                   alt={item.nome}
                   className="w-16 h-16 rounded-xl object-cover shrink-0 bg-slate-100 border border-slate-200"
                   onError={(e) => {
-                    e.currentTarget.src = '/imagens/origem/instagram/baixada-1.jpg';
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = '/imagens/produtos/placeholder-lanche.jpg';
                   }}
                 />
 
@@ -243,10 +244,13 @@ export function GavetaCarrinho({
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <img 
-                        src={prod.imagens?.[0]?.arquivo || prod.imagens?.[0] || '/imagens/origem/instagram/baixada-1.jpg'} 
+                        src={prod.imagens?.[0]?.arquivo || prod.imagens?.[0] || '/imagens/produtos/placeholder-lanche.jpg'} 
                         alt={prod.nome}
                         className="w-10 h-10 rounded-lg object-cover bg-white shrink-0 border border-slate-200"
-                        onError={(e) => { e.currentTarget.src = '/imagens/origem/instagram/baixada-1.jpg'; }}
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = '/imagens/produtos/placeholder-lanche.jpg';
+                        }}
                       />
                       <div className="min-w-0">
                         <p className="text-xs font-bold text-slate-900 truncate">{prod.nome}</p>

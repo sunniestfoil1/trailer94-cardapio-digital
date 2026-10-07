@@ -35,7 +35,7 @@ export function CarrinhoProvider({ children }) {
     const novoItem = {
       produtoId: produto.id,
       nome: produto.nome,
-      imagem: produto.imagens?.[0] || '/imagens/origem/instagram/baixada-1.jpg',
+      imagem: produto.imagens?.[0]?.arquivo || produto.imagens?.[0] || '/imagens/produtos/placeholder-lanche.jpg',
       precoUnitario,
       quantidade,
       opcionais,

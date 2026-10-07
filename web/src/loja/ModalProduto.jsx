@@ -79,11 +79,12 @@ export function ModalProduto({ produto, onClose }) {
         {/* Header com Imagem de Destaque e Linha Forte */}
         <div className="relative h-56 sm:h-64 w-full bg-black shrink-0">
           <img 
-            src={produto.imagens?.[0] || '/imagens/origem/instagram/baixada-1.jpg'} 
+            src={produto.imagens?.[0]?.arquivo || produto.imagens?.[0] || '/imagens/produtos/placeholder-lanche.jpg'} 
             alt={produto.nome}
             className="w-full h-full object-cover"
             onError={(e) => {
-              e.currentTarget.src = '/imagens/origem/instagram/baixada-1.jpg';
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = '/imagens/produtos/placeholder-lanche.jpg';
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/60" />

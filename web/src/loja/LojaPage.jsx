@@ -98,6 +98,24 @@ export function LojaPage({ initialPedidoId = null }) {
           if (cardapioData.categorias?.length > 0) {
             setCategoriaAtiva(cardapioData.categorias[0].id);
           }
+
+          // Precarregar todas as imagens reais do cardápio em memória durante o carregamento inicial
+          const urlsParaPrecarregar = Array.from(new Set([
+            '/far-tampa.webp',
+            '/far-base.webp',
+            '/logo.jpg',
+            '/banner.avif',
+            '/imagens/produtos/placeholder-lanche.jpg',
+            ...(cardapioData.categorias || []).flatMap(c => c.produtos || []).map(p => p.imagens?.[0]?.arquivo || p.imagens?.[0]).filter(Boolean)
+          ]));
+
+          await Promise.allSettled(
+            urlsParaPrecarregar.map(url => new Promise(resolve => {
+              const img = new Image();
+              img.onload = img.onerror = resolve;
+              img.src = url;
+            }))
+          );
         }
       } catch (err) {
         console.error('Falha ao carregar cardápio:', err);
@@ -153,17 +171,7 @@ export function LojaPage({ initialPedidoId = null }) {
   })).filter(cat => cat.produtos.length > 0);
 
   return (
-    <div 
-      className="min-h-screen pb-28 text-slate-100 relative bg-[#0a0d14]"
-      style={{
-        backgroundImage: "url('/imagens/origem/instagram/269.jpg')",
-        backgroundRepeat: 'repeat',
-        backgroundSize: '420px',
-      }}
-    >
-      {/* Overlay sutil para garantir legibilidade de alto contraste sobre o pattern */}
-      <div className="absolute inset-0 bg-slate-950/75 pointer-events-none" />
-
+    <div className="min-h-screen pb-28 text-slate-100 relative bg-[#0a0d14]">
       {/* Conteúdo da Loja */}
       <div className="relative z-10">
         {/* Topo / Header */}
@@ -288,8 +296,8 @@ export function LojaPage({ initialPedidoId = null }) {
               </a>
             </div>
 
-            {/* Pão de Baixo (Base - On Bottom) */}
-            <div className="w-full flex justify-center -mt-14 z-20 relative pointer-events-none">
+            {/* Pão de Baixo (Base - On Bottom - z-0 para ficar por baixo do card) */}
+            <div className="w-full flex justify-center -mt-14 z-0 relative pointer-events-none">
               <img 
                 src="/far-base.webp" 
                 alt="Pão de Baixo" 

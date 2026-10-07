@@ -5,7 +5,7 @@ import { formatarPreco } from '../compartilhado/formatadores';
 export function CardProduto({ produto, onAbrirDetalhes }) {
   const precoAtual = produto.preco_promocional ?? produto.preco_base;
   const temDesconto = produto.preco_promocional !== null && produto.preco_promocional !== undefined && produto.preco_promocional < produto.preco_base;
-  const imagemPrincipal = produto.imagens?.[0] || '/imagens/origem/instagram/baixada-1.jpg';
+  const imagemPrincipal = produto.imagens?.[0]?.arquivo || produto.imagens?.[0] || '/imagens/produtos/placeholder-lanche.jpg';
 
   return (
     <div 
@@ -62,7 +62,8 @@ export function CardProduto({ produto, onAbrirDetalhes }) {
           loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           onError={(e) => {
-            e.currentTarget.src = '/imagens/origem/instagram/baixada-1.jpg';
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = '/imagens/produtos/placeholder-lanche.jpg';
           }}
         />
 
