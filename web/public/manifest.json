@@ -1,0 +1,25 @@
+{
+  "name": "Bulls Burger — Painel do Administrador",
+  "short_name": "Bulls Admin",
+  "description": "Painel de Gestão de Cozinha KDS, Pedidos e Entregas do Bulls Burger",
+  "start_url": "/admin",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

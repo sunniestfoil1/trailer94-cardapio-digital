@@ -1,0 +1,94 @@
+{
+  "arquivo": "Contrato_Desenvolvimento_Bulls_Burger",
+  "titulo": "CONTRATO DE PRESTACAO DE SERVICOS DE DESENVOLVIMENTO DE SOFTWARE E SISTEMA DELIVERY",
+  "subtitulo": "Sistema completo de pedidos online, KDS em tempo real e modulo de entregadores",
+  "rodape": "Bulls Burger • Sistema de Delivery e Gestão Operacional",
+  "cidade_assinatura": "Cascavel - PR",
+  "contratante": {
+    "nome": "BULLS BURGER CASCAVEL",
+    "tipo_documento": "CNPJ",
+    "documento": "[CNPJ a preencher]",
+    "endereco": "Cascavel - PR, Brasil",
+    "representante": "Administracao Bulls Burger (WhatsApp: +55 45 98818-4380)"
+  },
+  "contratada": {
+    "nome": "DESENVOLVEDOR RESPONSAVEL",
+    "tipo_documento": "CPF/CNPJ",
+    "documento": "[Documento a preencher]",
+    "endereco": "Cascavel - PR, Brasil"
+  },
+  "clausulas": [
+    {
+      "titulo": "Do objeto da contratacao",
+      "partes": [
+        {
+          "tipo": "texto",
+          "conteudo": "O presente contrato tem por objeto o desenvolvimento, configuracao, testes de seguranca e entrega do sistema digital proprietario de pedidos e delivery para o estabelecimento comercial <b>Bulls Burger</b>, operante no municipio de Cascavel - PR."
+        }
+      ]
+    },
+    {
+      "titulo": "Do escopo tecnico e modulos entregues",
+      "partes": [
+        {
+          "tipo": "itens",
+          "conteudo": [
+            "Loja Publica Digital (Web/Mobile) desenvolvida em React + Vite, com navegacao sticky por categorias, cardapio com produtos reais Bulls (Bulls Xedar, Bulls Egg, Combos e Hot Dogs) e fotos oficiais.",
+            "Modulo de Personalizacao de Produtos em Bottom Sheet com grupos de opcionais obrigatorios (ponto da carne) e adicionais com preco dinamico.",
+            "Carrinho de Compras inteligente com persistencia em localStorage, controle de pedido minimo (R$ 25,00) e animacao de sacola.",
+            "Checkout seguro com selecao visual de pagamento (PIX copia-e-cola, Cartao Debito, Cartao Credito e Dinheiro com troco).",
+            "Acompanhamento de Pedido em Tempo Real para o cliente final via comunicacao nativa WebSocket, integrado com WhatsApp oficial (+55 45 98818-4380).",
+            "Painel Administrativo KDS (Kitchen Display System) para visualizacao e gestao da chapa/cozinha (Recebido, Em Preparo, Pronto, Em Rota, Entregue).",
+            "Modulo de Gestao de Entregadores com autenticacao agil por PIN (4 ultimos digitos do celular) e radar de corridas prontas.",
+            "Mecanismo de Protecao Atomica contra Race Condition em banco de dados SQLite (better-sqlite3), garantindo que apenas um entregador aceite cada entrega.",
+            "Integracao de Rotas via deep-link direto no Google Maps para o trajeto da entrega.",
+            "Suite de testes de estresse, seguranca defensiva (anti SQL Injection, anti adulteracao de precos e RBAC rigoroso)."
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Das garantias e seguranca da aplicacao",
+      "partes": [
+        {
+          "tipo": "texto",
+          "conteudo": "A CONTRATADA garante a implementacao das melhores praticas de seguranca da informacao e OWASP, assegurando que o calculo de valores e totalizacoes financeiras ocorram estritamente no servidor, impedindo modificacoes maliciosas por parte dos usuarios clientes ou entregadores."
+        }
+      ]
+    },
+    {
+      "titulo": "Do preco e condicoes de pagamento",
+      "partes": [
+        {
+          "tipo": "tabela",
+          "cabecalho": [
+            "Etapa / Modulo",
+            "Valor Acordado",
+            "Condicao de Pagamento"
+          ],
+          "linhas": [
+            [
+              "Desenvolvimento do Sistema Completo (Loja + Admin KDS + App Motoboy)",
+              "[R$ Valor Total do Projeto]",
+              "50% na assinatura e 50% na homologacao final"
+            ],
+            [
+              "Suporte Tecnico e Manutencao de Servidor (Mensal)",
+              "[R$ Valor Mensal]",
+              "Vencimento no dia 10 de cada mes"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Das disposicoes finais e foro",
+      "partes": [
+        {
+          "tipo": "texto",
+          "conteudo": "Para dirimir quaisquer duvidas ou controversias oriundas deste instrumento, as partes elegem o Foro da Comarca de Cascavel, Estado do Parana, com renuncia expressa a qualquer outro, por mais privilegiado que seja."
+        }
+      ]
+    }
+  ]
+}

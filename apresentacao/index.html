@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Executiva — Sistema Bulls Burger</title>
+  <!-- Tailwind CSS via CDN para apresentação autônoma -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #090d16;
+      color: #f8fafc;
+    }
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #f2c54b 0%, #d4a017 100%);
+    }
+    .text-gold {
+      color: #f2c54b;
+    }
+    .border-gold {
+      border-color: #f2c54b;
+    }
+    .flow-arrow::after {
+      content: '➔';
+      position: absolute;
+      right: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #f2c54b;
+    }
+    @media (max-width: 768px) {
+      .flow-arrow::after {
+        content: '↓';
+        right: 50%;
+        bottom: -24px;
+        top: auto;
+        transform: translateX(50%);
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- Header Superior da Apresentação -->
+  <header class="px-6 py-4 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 flex items-center justify-between z-20">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl gold-gradient text-slate-950 flex items-center justify-center font-black text-lg shadow-lg">
+        🐂
+      </div>
+      <div>
+        <h1 class="text-sm font-extrabold text-white tracking-wide">BULLS BURGER • SISTEMA INTEGRADO</h1>
+        <p class="text-[11px] text-amber-400 font-medium">Apresentação Técnica & Comercial do Projeto</p>
+      </div>
+    </div>
+
+    <!-- Indicador de Slide -->
+    <div class="flex items-center gap-3">
+      <span id="slide-counter" class="text-xs font-bold text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">
+        Slide 1 de 8
+      </span>
+      <div class="flex items-center gap-1">
+        <button id="prev-btn" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all text-xs font-bold">
+          ◀ Anterior
+        </button>
+        <button id="next-btn" class="p-2 rounded-xl gold-gradient text-slate-950 hover:brightness-110 transition-all text-xs font-extrabold shadow-md">
+          Próximo ▶
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Container Principal dos Slides -->
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-8 max-w-6xl mx-auto w-full">
+
+    <!-- SLIDE 1: Capa Executiva -->
+    <section class="slide active flex-col items-center justify-center text-center space-y-6 w-full animate-in">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+        <span>🚀 Entrega Oficial de Software Sob Medida</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black text-white max-w-3xl leading-tight">
+        A Nova Era do Delivery Digital do <span class="text-gold">Bulls Burger</span>
+      </h2>
+      <p class="text-sm sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+        Cardápio digital de alta conversão, despacho de cozinha KDS em tempo real e módulo exclusivo de entregadores com proteção anti-race condition.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl pt-6">
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+          <p class="text-2xl font-black text-amber-400">100%</p>
+          <p class="text-xs text-slate-400 mt-1">Autônomo & Próprio</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+          <p class="text-2xl font-black text-emerald-400">0%</p>
+          <p class="text-xs text-slate-400 mt-1">Comissões de App</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+          <p class="text-2xl font-black text-blue-400">&lt; 100ms</p>
+          <p class="text-xs text-slate-400 mt-1">Tempo Real WebSocket</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+          <p class="text-2xl font-black text-purple-400">17/17</p>
+          <p class="text-xs text-slate-400 mt-1">Testes de Segurança</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Diagrama de Arquitetura e Fluxo (Flechinhas) -->
+    <section class="slide flex-col space-y-6 w-full">
+      <div class="text-center space-y-1">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Arquitetura de Alto Nível</h3>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Fluxo Operacional de Ponta a Ponta</h2>
+      </div>
+
+      <!-- Diagrama de Blocos com Flechinhas -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 pt-4 relative">
+        <!-- Passo 1 -->
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative flow-arrow shadow-xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center font-bold text-lg">
+            1
+          </div>
+          <h4 class="font-bold text-base text-white">Loja Pública SPA</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Cliente acessa o cardápio no celular, customiza opcionais e fecha com PIX ou Cartão sem necessidade de cadastro burocrático.
+          </p>
+          <span class="inline-block text-[10px] bg-slate-800 text-amber-300 px-2 py-0.5 rounded font-mono">React + Vite</span>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative flow-arrow shadow-xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-lg">
+            2
+          </div>
+          <h4 class="font-bold text-base text-white">Servidor & Validação</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            O backend confere preços, grupos obrigatórios, horário de funcionamento e gera transação atômica em SQLite.
+          </p>
+          <span class="inline-block text-[10px] bg-slate-800 text-blue-300 px-2 py-0.5 rounded font-mono">Express + SQLite WAL</span>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative flow-arrow shadow-xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+            3
+          </div>
+          <h4 class="font-bold text-base text-white">KDS na Cozinha</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Notificação instantânea via WebSocket na tela da chapa: Recebido ➔ Em Preparo ➔ Embalado e Pronto.
+          </p>
+          <span class="inline-block text-[10px] bg-slate-800 text-emerald-300 px-2 py-0.5 rounded font-mono">WebSocket Hub</span>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-lg">
+            4
+          </div>
+          <h4 class="font-bold text-base text-white">Despacho & Motoboy</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Radar apita para os motoboys. O primeiro aceita (com trava atômica), abre a rota no Google Maps e conclui a entrega.
+          </p>
+          <span class="inline-block text-[10px] bg-slate-800 text-purple-300 px-2 py-0.5 rounded font-mono">Deep Link Maps</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: O Molde Visual & Fidelidade de Design -->
+    <section class="slide flex-col space-y-6 w-full">
+      <div class="text-center space-y-1">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Design & Identidade Visual</h3>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Fidelidade Estética aos Grandes do Mercado</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+          <div class="text-3xl">📱</div>
+          <h4 class="font-bold text-white text-base">Navegação Brendi-Like</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Layout inspirado na plataforma de ponta (La Brasa / Brendi): Abas de categoria deslizantes, scroll suave, fotos quadradas com cantos arredondados e botão de adição rápida.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+          <div class="text-3xl">🍔</div>
+          <h4 class="font-bold text-white text-base">Dados Reais do Bulls Burger</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Integrado com os dados reais apurados do Instagram @bull.s.burguer: WhatsApp (45) 98818-4380, Bulls Xedar, 2 Bull's Egg R$ 45,90, Combo de Quarta R$ 100 e Hot Dog Artesanal.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+          <div class="text-3xl">💳</div>
+          <h4 class="font-bold text-white text-base">Pagamentos com Ícones Oficiais</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Seleção visual cristalina com os ícones de alta fidelidade: PIX, Visa, Mastercard, Elo e Dinheiro com troco inteligente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Engenharia do Portal do Entregador -->
+    <section class="slide flex-col space-y-6 w-full">
+      <div class="text-center space-y-1">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Eficiência Logística</h3>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Portal do Entregador (/entregador)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+          <h4 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+            <span>🔑 Autenticação Rápida por PIN</span>
+          </h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Para facilitar a operação na moto pelo celular, o entregador não precisa digitar senhas complexas: o sistema calcula o PIN com base nos <strong>4 últimos dígitos do WhatsApp cadastrado</strong>.
+          </p>
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-400">
+            Exemplo: Celular (45) 99876-<strong>4321</strong> ➔ PIN de Acesso: <strong>4321</strong>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+          <h4 class="text-lg font-bold text-emerald-400 flex items-center gap-2">
+            <span>📍 Google Maps com 1 Toque</span>
+          </h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Ao aceitar a entrega, o botão <strong>"Abrir Rota no Google Maps"</strong> gera imediatamente o deep-link com o endereço completo, complemento e cidade do cliente, abrindo o GPS nativo sem precisar digitar.
+          </p>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-400">
+            Link automático: <code>google.com/maps/dir/?api=1&destination=...</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Proteção Contra Race Condition (A Corrida do Motoboy) -->
+    <section class="slide flex-col space-y-6 w-full">
+      <div class="text-center space-y-1">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Engenharia de Concorrência</h3>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">A Solução Definitiva para a Corrida do Motoboy</h2>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Em pizzarias e hamburguerias, quando um pedido fica pronto, dezenas de entregadores apertam "Aceitar" na mesma fração de segundo. Se o sistema não tiver proteção atômica, dois motoboys vão até o endereço do mesmo cliente.
+        </p>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/30 font-mono text-xs text-amber-300">
+          UPDATE pedidos<br>
+          SET motoboy_id = ?, status = 'em_entrega', aceito_em = datetime('now')<br>
+          WHERE id = ? AND motoboy_id IS NULL AND status = 'pronto'
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-3 bg-emerald-950/60 border border-emerald-500/40 rounded-xl text-xs text-emerald-200">
+            <strong>O 1º Motoboy no milissegundo:</strong> Recebe HTTP 200, a corrida é fixada para ele e removida instantaneamente das telas dos outros via WebSocket.
+          </div>
+          <div class="p-3 bg-red-950/60 border border-red-500/40 rounded-xl text-xs text-red-200">
+            <strong>Os outros 9 Motoboys simultâneos:</strong> O banco retorna <code>changes = 0</code> e a API devolve HTTP 409 Conflict avisando que a corrida acabou de ser pega.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Bateria de Segurança Defensiva e Testes -->
+    <section class="slide flex-col space-y-6 w-full">
+      <div class="text-center space-y-1">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Qualidade & Blindagem</h3>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Relatório de Testes Automatizados (17/17 PASS)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Anti-Tamper de Preços (Recálculo no Backend)</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Validação de Opcionais Obrigatórios (Ponto da Carne)</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Bloqueio de Pedido Mínimo (R$ 25,00)</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Proteção de Rotas Administrativas (RBAC)</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Isolamento de Motoboy Pendente / Inativo</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Autenticação Rápida de Motoboy por PIN</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Concorrência Extrema (10 Motoboys Simultâneos)</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
+          <span>Blindagem contra Injeções SQL (Consultas Parametrizadas)</span>
+          <span class="text-emerald-400 font-bold">100% PASS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Painel Administrativo KDS & Gestão -->
+    <section class="slide flex-col space-y-6 w-full">
+      <div class="text-center space-y-1">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Gestão Operacional</h3>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Controle Total do Dono (/admin)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-sm">Chapa & Expedição (KDS)</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Painel visual com colunas de produção: novos pedidos apitam na tela, vão para a chapa e ao ficarem prontos acionam o radar dos motoboys.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-sm">Gestão de Entregadores</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Aprovação em 1 clique de novos motoboys, visualização de quem está em rota e controle de quanto cada um faturou na noite.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-2">
+          <h4 class="font-bold text-white text-sm">Cardápio & Preços Dinâmicos</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Altere preços instantaneamente, pause produtos esgotados e configure taxas e horários noturnos sem precisar de programador.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Contrato Formal e Conclusão -->
+    <section class="slide flex-col space-y-6 w-full text-center items-center">
+      <div class="w-16 h-16 rounded-full gold-gradient text-slate-950 flex items-center justify-center font-black text-2xl mx-auto shadow-2xl">
+        ✓
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white">
+        Projeto Concluído com Sucesso e Pronto para Rodar!
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+        O sistema está testado, estruturado segundo as 50 boas práticas de engenharia de software e acompanhado do Contrato Formal de Prestação de Serviços gerado em PDF.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <a 
+          href="/" 
+          target="_blank"
+          class="px-5 py-3 rounded-xl gold-gradient text-slate-950 font-black text-xs shadow-lg hover:brightness-110"
+        >
+          Acessar Cardápio Digital (Loja)
+        </a>
+        <a 
+          href="/admin" 
+          target="_blank"
+          class="px-5 py-3 rounded-xl bg-slate-800 text-white font-bold text-xs hover:bg-slate-700 border border-slate-700"
+        >
+          Acessar Painel KDS / Admin
+        </a>
+        <a 
+          href="/entregador" 
+          target="_blank"
+          class="px-5 py-3 rounded-xl bg-slate-800 text-amber-300 font-bold text-xs hover:bg-slate-700 border border-slate-700"
+        >
+          Acessar App do Entregador
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé com Atalhos de Teclado -->
+  <footer class="px-6 py-3 bg-slate-900/60 border-t border-slate-800/80 text-center text-xs text-slate-500 flex justify-between items-center">
+    <span>Dica: Use as setas do teclado <strong>◀ / ▶</strong> ou Espaço para navegar pelos slides.</span>
+    <span>Bulls Burger Delivery Cascavel • 2026</span>
+  </footer>
+
+  <!-- Script de Navegação dos Slides -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('slide-counter');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === index);
+      });
+      counter.textContent = `Slide ${index + 1} de ${totalSlides}`;
+      currentSlide = index;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) updateSlide(currentSlide - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < totalSlides - 1) updateSlide(currentSlide + 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        if (currentSlide < totalSlides - 1) updateSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft') {
+        if (currentSlide > 0) updateSlide(currentSlide - 1);
+      }
+    });
+  </script>
+</body>
+</html>

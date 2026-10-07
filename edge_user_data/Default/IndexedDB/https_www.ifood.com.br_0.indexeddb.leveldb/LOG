@@ -1,0 +1,10 @@
+2026/10/06-18:33:25.279 4cb8 Creating DB C:\PROJETOS\PROJETO DE SITE\trailer94-cardapio digital\edge_user_data\Default\IndexedDB\https_www.ifood.com.br_0.indexeddb.leveldb since it was missing.
+2026/10/06-18:33:25.284 4cb8 Reusing MANIFEST C:\PROJETOS\PROJETO DE SITE\trailer94-cardapio digital\edge_user_data\Default\IndexedDB\https_www.ifood.com.br_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/06-18:33:26.717 3fd4 Level-0 table #5: started
+2026/10/06-18:33:26.725 3fd4 Level-0 table #5: 5038 bytes OK
+2026/10/06-18:33:26.727 3fd4 Delete type=0 #3
+2026/10/06-18:33:26.728 25d0 Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/10/06-18:33:27.689 5ba8 Level-0 table #7: started
+2026/10/06-18:33:27.693 5ba8 Level-0 table #7: 114615 bytes OK
+2026/10/06-18:33:27.696 5ba8 Delete type=0 #4
+2026/10/06-18:33:27.697 25d0 Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)
